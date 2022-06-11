@@ -10,11 +10,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Dog Feed',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'しょこりのご飯'),
     );
   }
 }
@@ -39,27 +39,65 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Center(
+          child: Text(widget.title),
+        ),
       ),
       body: Center(
-        child: Column(
+        child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            Week(),
+            Default(),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+class Week extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+        child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: const <Widget>[
+        Text('Monday'),
+        Text('Tuesday'),
+        Text('Wednesday'),
+        Text('Thursday'),
+        Text('Friday'),
+        Text('Saturday'),
+        Text('Sunday'),
+      ],
+    ));
+  }
+}
+
+class Default extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const Image(
+              image: AssetImage('images/dog-face-ios.png'),
+              width: 100.0,
+          ),
+          const Text(
+            'wanwan',
+          ),
+          Text(
+            'counter',
+            style: Theme.of(context).textTheme.headline4,
+          ),
+
+        ],
+      ),
     );
   }
 }
