@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
 void main() {
+  day();
   runApp(const MyApp());
 }
 
@@ -12,9 +15,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Dog Feed',
       theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
-      home: const MyHomePage(title: 'しょこりのご飯'),
+          primarySwatch: Colors.green,
+          textTheme: GoogleFonts.notoSansTextTheme(
+            Theme.of(context).textTheme,
+          )),
+      home: const MyHomePage(title: 'inuのご飯'),
     );
   }
 }
@@ -65,14 +70,21 @@ class Week extends StatelessWidget {
     return Material(
         child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const <Widget>[
-        Text('Monday'),
-        Text('Tuesday'),
-        Text('Wednesday'),
-        Text('Thursday'),
-        Text('Friday'),
-        Text('Saturday'),
-        Text('Sunday'),
+      children:  <Widget>[
+        Container(
+          padding: const EdgeInsets.all(16.0),
+          child: const Text(
+            'Monday',
+            style: TextStyle(fontSize: 20.0),
+          ),
+        ),
+        Container(
+          padding: const EdgeInsets.all(16.0),
+          child: const Text(
+            'TuesDay',
+            style: TextStyle(fontSize: 20.0),
+          ),
+        ),
       ],
     ));
   }
@@ -88,8 +100,8 @@ class Default extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           const Image(
-              image: AssetImage('images/dog-face-ios.png'),
-              width: 100.0,
+            image: AssetImage('images/dog-face-ios.png'),
+            width: 100.0,
           ),
           const Text(
             'wanwan',
@@ -98,9 +110,15 @@ class Default extends StatelessWidget {
             'counter',
             style: Theme.of(context).textTheme.headline4,
           ),
-
         ],
       ),
     );
   }
+}
+
+void day() {
+  final DateTime now = DateTime.now();
+  final DateFormat outputFormat = DateFormat('yyyy-MM-dd');
+  final String date = outputFormat.format(now);
+  print(date);
 }
