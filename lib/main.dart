@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: const <Widget>[
             Week(),
             Default(),
           ],
@@ -58,6 +58,8 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class Week extends StatelessWidget {
+  const Week({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -77,6 +79,7 @@ class Week extends StatelessWidget {
 }
 
 class Default extends StatelessWidget {
+  const Default({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
