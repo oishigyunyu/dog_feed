@@ -19,41 +19,31 @@ class MyApp extends StatelessWidget {
           textTheme: GoogleFonts.notoSansTextTheme(
             Theme.of(context).textTheme,
           )),
-      home: const MyHomePage(title: 'inuのご飯'),
+      home: const MyHomePage(
+        title: 'Hello',
+      ),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Center(
-          child: Text(widget.title),
+          child: Text(title),
         ),
       ),
       body: Center(
-        child: Row(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: const <Widget>[
-            Week(),
             Default(),
+            Week(),
           ],
         ),
       ),
@@ -65,12 +55,32 @@ class _MyHomePageState extends State<MyHomePage> {
 class Week extends StatelessWidget {
   const Week({Key? key}) : super(key: key);
 
+  List<Widget> _buildDaysList() {
+    final list = <Widget>[];
+    for (int i = 0; i < 7; ++i) {
+      final DateTime now = DateTime.now().add(Duration(days: i));
+      final DateFormat outputFormat = DateFormat('yyyy-MM-dd');
+      final String date = outputFormat.format(now);
+      list.add(Container(
+        padding: const EdgeInsets.all(16.0),
+        child: Text(
+          '$date.weekday',
+          style: const TextStyle(fontSize: 20.0),
+        ),
+      )
+      );
+    }
+    return list;
+  }
+
+  final <Widget>[] days = _buildDaysList();
+
   @override
   Widget build(BuildContext context) {
     return Material(
         child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children:  <Widget>[
+      children: <Widget>[
         Container(
           padding: const EdgeInsets.all(16.0),
           child: const Text(
@@ -98,17 +108,13 @@ class Default extends StatelessWidget {
     return Material(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          const Image(
+        children: const <Widget>[
+          Image(
             image: AssetImage('images/dog-face-ios.png'),
             width: 100.0,
           ),
-          const Text(
-            'wanwan',
-          ),
           Text(
-            'counter',
-            style: Theme.of(context).textTheme.headline4,
+            'しょこり',
           ),
         ],
       ),
@@ -120,5 +126,5 @@ void day() {
   final DateTime now = DateTime.now();
   final DateFormat outputFormat = DateFormat('yyyy-MM-dd');
   final String date = outputFormat.format(now);
-  print(date);
+  print('day: $date.weekday');
 }
