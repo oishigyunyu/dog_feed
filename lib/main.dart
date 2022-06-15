@@ -43,7 +43,7 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: const <Widget>[
             Default(),
-            Week(),
+            WeekCheckBox(),
           ],
         ),
       ),
@@ -52,51 +52,41 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-class Week extends StatelessWidget {
-  const Week({Key? key}) : super(key: key);
+class WeekCheckBox extends StatelessWidget {
+  const WeekCheckBox({Key? key}) : super(key: key);
 
-  List<Widget> _buildDaysList() {
-    final list = <Widget>[];
-    for (int i = 0; i < 7; ++i) {
-      final DateTime now = DateTime.now().add(Duration(days: i));
-      final DateFormat outputFormat = DateFormat('yyyy-MM-dd');
-      final String date = outputFormat.format(now);
-      list.add(Container(
-        padding: const EdgeInsets.all(16.0),
-        child: Text(
-          '$date.weekday',
-          style: const TextStyle(fontSize: 20.0),
-        ),
-      )
-      );
-    }
+  List buildList() {
+    final list = <String>[];
+    list.add('Sunday');
+    list.add('Monday');
+    list.add('Tuesday');
+    list.add('Wednesday');
+    list.add('Thursday');
+    list.add('Friday');
+    list.add('Saturday');
     return list;
   }
 
-  final <Widget>[] days = _buildDaysList();
-
   @override
   Widget build(BuildContext context) {
-    return Material(
-        child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Container(
+    final dayList = buildList();
+    return ListView.builder(
+      itemCount: dayList.length, // この行を追加
+      itemBuilder: (BuildContext context, int index) {
+        return Container(
           padding: const EdgeInsets.all(16.0),
-          child: const Text(
-            'Monday',
-            style: TextStyle(fontSize: 20.0),
+          child: Center(
+            child: Row(
+              children: <Widget>[
+                Text(
+                  dayList[index],
+                ),
+              ],
+            ),
           ),
-        ),
-        Container(
-          padding: const EdgeInsets.all(16.0),
-          child: const Text(
-            'TuesDay',
-            style: TextStyle(fontSize: 20.0),
-          ),
-        ),
-      ],
-    ));
+        );
+      },
+    );
   }
 }
 
