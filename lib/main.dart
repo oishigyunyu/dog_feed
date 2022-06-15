@@ -43,7 +43,7 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: const <Widget>[
             Default(),
-            DayCheckBox(),
+            DayBox(),
           ],
         ),
       ),
@@ -52,9 +52,8 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class DayCheckBox extends StatefulWidget {
-  const DayCheckBox({Key? key}) : super(key: key);
-
+class DayBox extends StatefulWidget {
+  const DayBox({Key? key}) : super(key: key);
   List buildList() {
     final list = <String>[];
     list.add('Sunday');
@@ -68,23 +67,43 @@ class DayCheckBox extends StatefulWidget {
   }
 
   @override
-  _DayCheckBoxState createState() => _DayCheckBoxState();
+  State<DayBox> createState() => _DayBoxState();
 }
 
-class _DayCheckBoxState extends State<DayCheckBox> {
-  bool _checked = false;
+class _DayBoxState extends State<DayBox> {
+  bool _checkedBreakfast = false;
+  bool _checkedDinner = false;
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Checkbox(
-        activeColor: Colors.blue,
-        value: _checked,
-        onChanged: (bool? value) {
-          setState(() {
-            _checked = value!;
-          });
-        },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          const Text(
+            'げつようび',
+            style: TextStyle(fontSize: 30.0),
+          ),
+          Checkbox(
+            activeColor: Colors.blue,
+            value: _checkedBreakfast,
+            onChanged: (bool? value) {
+              setState(() {
+                _checkedBreakfast = value!;
+              });
+            },
+          ),
+          Checkbox(
+            activeColor: Colors.blue,
+            value: _checkedDinner,
+            onChanged: (bool? value) {
+              setState(() {
+                _checkedDinner = value!;
+              });
+            },
+          ),
+        ],
       ),
     );
   }
