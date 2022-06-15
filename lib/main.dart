@@ -19,15 +19,15 @@ class MyApp extends StatelessWidget {
           textTheme: GoogleFonts.notoSansTextTheme(
             Theme.of(context).textTheme,
           )),
-      home: const MyHomePage(
+      home: const HomePage(
         title: 'Hello',
       ),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
@@ -43,7 +43,7 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: const <Widget>[
             Default(),
-            WeekCheckBox(),
+            DayCheckBox(),
           ],
         ),
       ),
@@ -52,8 +52,8 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-class WeekCheckBox extends StatelessWidget {
-  const WeekCheckBox({Key? key}) : super(key: key);
+class DayCheckBox extends StatefulWidget {
+  const DayCheckBox({Key? key}) : super(key: key);
 
   List buildList() {
     final list = <String>[];
@@ -68,24 +68,24 @@ class WeekCheckBox extends StatelessWidget {
   }
 
   @override
+  _DayCheckBoxState createState() => _DayCheckBoxState();
+}
+
+class _DayCheckBoxState extends State<DayCheckBox> {
+  bool _checked = false;
+
+  @override
   Widget build(BuildContext context) {
-    final dayList = buildList();
-    return ListView.builder(
-      itemCount: dayList.length, // この行を追加
-      itemBuilder: (BuildContext context, int index) {
-        return Container(
-          padding: const EdgeInsets.all(16.0),
-          child: Center(
-            child: Row(
-              children: <Widget>[
-                Text(
-                  dayList[index],
-                ),
-              ],
-            ),
-          ),
-        );
-      },
+    return Center(
+      child: Checkbox(
+        activeColor: Colors.blue,
+        value: _checked,
+        onChanged: (bool? value) {
+          setState(() {
+            _checked = value!;
+          });
+        },
+      ),
     );
   }
 }
@@ -104,7 +104,8 @@ class Default extends StatelessWidget {
             width: 100.0,
           ),
           Text(
-            'しょこり',
+            'しょこりのごはん',
+            style: TextStyle(fontSize: 30),
           ),
         ],
       ),
