@@ -54,7 +54,15 @@ class HomePage extends StatelessWidget {
 
 class DayBox extends StatefulWidget {
   const DayBox({Key? key}) : super(key: key);
-  List buildList() {
+
+
+
+  @override
+  State<DayBox> createState() => _DayBoxState();
+}
+
+class _DayBoxState extends State<DayBox> {
+  List<String> buildList() {
     final list = <String>[];
     list.add('Sunday');
     list.add('Monday');
@@ -65,15 +73,10 @@ class DayBox extends StatefulWidget {
     list.add('Saturday');
     return list;
   }
-
-  @override
-  State<DayBox> createState() => _DayBoxState();
-}
-
-class _DayBoxState extends State<DayBox> {
   bool _checkedBreakfast = false;
   bool _checkedDinner = false;
 
+  List<String> list = buildList();
   @override
   Widget build(BuildContext context) {
     return Center(
