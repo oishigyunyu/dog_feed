@@ -79,29 +79,39 @@ class _DayBoxState extends State<DayBox> {
     return Center(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: <Widget>[
           const Text(
             'げつようび',
             style: TextStyle(fontSize: 30.0),
           ),
-          Checkbox(
-            activeColor: Colors.blue,
-            value: _checkedBreakfast,
-            onChanged: (bool? value) {
-              setState(() {
-                _checkedBreakfast = value!;
-              });
-            },
+          Column(
+            children: <Widget>[
+              const Text('あさ', style: TextStyle(fontSize: 20.0)),
+              Checkbox(
+                activeColor: Colors.blue,
+                value: _checkedBreakfast,
+                onChanged: (bool? value) {
+                  setState(() {
+                    _checkedBreakfast = value!;
+                  });
+                },
+              ),
+            ],
           ),
-          Checkbox(
-            activeColor: Colors.blue,
-            value: _checkedDinner,
-            onChanged: (bool? value) {
-              setState(() {
-                _checkedDinner = value!;
-              });
-            },
+          Column(
+            children: <Widget>[
+              const Text('よる', style: TextStyle(fontSize: 20.0),),
+              Checkbox(
+                activeColor: Colors.blue,
+                value: _checkedDinner,
+                onChanged: (bool? value) {
+                  setState(() {
+                    _checkedDinner = value!;
+                  });
+                },
+              ),
+            ],
           ),
         ],
       ),
