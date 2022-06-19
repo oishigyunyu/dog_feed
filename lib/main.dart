@@ -60,11 +60,33 @@ class DayBox extends StatefulWidget {
 }
 
 class _DayBoxState extends State<DayBox> {
-  bool _checkedBreakfast = false;
-  bool _checkedDinner = false;
-
   @override
   Widget build(BuildContext context) {
+    List<bool> _checkedBreakfast = [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ];
+    List<bool> _checkedDinner = [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ];
+
     List list = <String>[];
     list.add('Sunday');
     list.add('Monday');
@@ -89,10 +111,10 @@ class _DayBoxState extends State<DayBox> {
                   const Text('あさ', style: TextStyle(fontSize: 20.0)),
                   Checkbox(
                     activeColor: Colors.blue,
-                    value: _checkedBreakfast,
+                    value: _checkedBreakfast[0],
                     onChanged: (bool? value) {
                       setState(() {
-                        _checkedBreakfast = value!;
+                        _checkedBreakfast[0] = value!;
                       });
                     },
                   ),
@@ -106,10 +128,10 @@ class _DayBoxState extends State<DayBox> {
                   ),
                   Checkbox(
                     activeColor: Colors.blue,
-                    value: _checkedDinner,
+                    value: _checkedDinner[0],
                     onChanged: (bool? value) {
                       setState(() {
-                        _checkedDinner = value!;
+                        _checkedDinner[0] = value!;
                       });
                     },
                   ),
@@ -127,19 +149,19 @@ class _DayBoxState extends State<DayBox> {
               ),
               Checkbox(
                 activeColor: Colors.blue,
-                value: _checkedBreakfast,
+                value: _checkedBreakfast[1],
                 onChanged: (bool? value) {
                   setState(() {
-                    _checkedBreakfast = value!;
+                    _checkedBreakfast[1] = value!;
                   });
                 },
               ),
               Checkbox(
                 activeColor: Colors.blue,
-                value: _checkedDinner,
+                value: _checkedDinner[1],
                 onChanged: (bool? value) {
                   setState(() {
-                    _checkedDinner = value!;
+                    _checkedDinner[1] = value!;
                   });
                 },
               ),
@@ -155,19 +177,19 @@ class _DayBoxState extends State<DayBox> {
               ),
               Checkbox(
                 activeColor: Colors.blue,
-                value: _checkedBreakfast,
+                value: _checkedBreakfast[2],
                 onChanged: (bool? value) {
                   setState(() {
-                    _checkedBreakfast = value!;
+                    _checkedBreakfast[2] = value!;
                   });
                 },
               ),
               Checkbox(
                 activeColor: Colors.blue,
-                value: _checkedDinner,
+                value: _checkedDinner[2],
                 onChanged: (bool? value) {
                   setState(() {
-                    _checkedDinner = value!;
+                    _checkedDinner[2] = value!;
                   });
                 },
               ),
@@ -183,19 +205,19 @@ class _DayBoxState extends State<DayBox> {
               ),
               Checkbox(
                 activeColor: Colors.blue,
-                value: _checkedBreakfast,
+                value: _checkedBreakfast[3],
                 onChanged: (bool? value) {
                   setState(() {
-                    _checkedBreakfast = value!;
+                    _checkedBreakfast[3] = value!;
                   });
                 },
               ),
               Checkbox(
                 activeColor: Colors.blue,
-                value: _checkedDinner,
+                value: _checkedDinner[3],
                 onChanged: (bool? value) {
                   setState(() {
-                    _checkedDinner = value!;
+                    _checkedDinner[3] = value!;
                   });
                 },
               ),
@@ -211,19 +233,19 @@ class _DayBoxState extends State<DayBox> {
               ),
               Checkbox(
                 activeColor: Colors.blue,
-                value: _checkedBreakfast,
+                value: _checkedBreakfast[4],
                 onChanged: (bool? value) {
                   setState(() {
-                    _checkedBreakfast = value!;
+                    _checkedBreakfast[4] = value!;
                   });
                 },
               ),
               Checkbox(
                 activeColor: Colors.blue,
-                value: _checkedDinner,
+                value: _checkedDinner[4],
                 onChanged: (bool? value) {
                   setState(() {
-                    _checkedDinner = value!;
+                    _checkedDinner[4] = value!;
                   });
                 },
               ),
@@ -239,19 +261,19 @@ class _DayBoxState extends State<DayBox> {
               ),
               Checkbox(
                 activeColor: Colors.blue,
-                value: _checkedBreakfast,
+                value: _checkedBreakfast[5],
                 onChanged: (bool? value) {
                   setState(() {
-                    _checkedBreakfast = value!;
+                    _checkedBreakfast[5] = value!;
                   });
                 },
               ),
               Checkbox(
                 activeColor: Colors.blue,
-                value: _checkedDinner,
+                value: _checkedDinner[5],
                 onChanged: (bool? value) {
                   setState(() {
-                    _checkedDinner = value!;
+                    _checkedDinner[5] = value!;
                   });
                 },
               ),
@@ -267,19 +289,19 @@ class _DayBoxState extends State<DayBox> {
               ),
               Checkbox(
                 activeColor: Colors.blue,
-                value: _checkedBreakfast,
+                value: _checkedBreakfast[6],
                 onChanged: (bool? value) {
                   setState(() {
-                    _checkedBreakfast = value!;
+                    _checkedBreakfast[6] = value!;
                   });
                 },
               ),
               Checkbox(
                 activeColor: Colors.blue,
-                value: _checkedDinner,
+                value: _checkedDinner[6],
                 onChanged: (bool? value) {
                   setState(() {
-                    _checkedDinner = value!;
+                    _checkedDinner[6] = value!;
                   });
                 },
               ),
