@@ -55,15 +55,17 @@ class HomePage extends StatelessWidget {
 class DayBox extends StatefulWidget {
   const DayBox({Key? key}) : super(key: key);
 
-
-
   @override
   State<DayBox> createState() => _DayBoxState();
 }
 
 class _DayBoxState extends State<DayBox> {
-  List<String> buildList() {
-    final list = <String>[];
+  bool _checkedBreakfast = false;
+  bool _checkedDinner = false;
+
+  @override
+  Widget build(BuildContext context) {
+    List list = <String>[];
     list.add('Sunday');
     list.add('Monday');
     list.add('Tuesday');
@@ -71,26 +73,58 @@ class _DayBoxState extends State<DayBox> {
     list.add('Thursday');
     list.add('Friday');
     list.add('Saturday');
-    return list;
-  }
-  bool _checkedBreakfast = false;
-  bool _checkedDinner = false;
-
-  List<String> list = buildList();
-  @override
-  Widget build(BuildContext context) {
     return Center(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.end,
+      child: Column(
         children: <Widget>[
-          const Text(
-            'げつようび',
-            style: TextStyle(fontSize: 30.0),
-          ),
-          Column(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
-              const Text('あさ', style: TextStyle(fontSize: 20.0)),
+              const Text(
+                'げつようび',
+                style: TextStyle(fontSize: 30.0),
+              ),
+              Column(
+                children: <Widget>[
+                  const Text('あさ', style: TextStyle(fontSize: 20.0)),
+                  Checkbox(
+                    activeColor: Colors.blue,
+                    value: _checkedBreakfast,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        _checkedBreakfast = value!;
+                      });
+                    },
+                  ),
+                ],
+              ),
+              Column(
+                children: <Widget>[
+                  const Text(
+                    'よる',
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                  Checkbox(
+                    activeColor: Colors.blue,
+                    value: _checkedDinner,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        _checkedDinner = value!;
+                      });
+                    },
+                  ),
+                ],
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: <Widget>[
+              const Text(
+                '　かようび',
+                style: TextStyle(fontSize: 30.0),
+              ),
               Checkbox(
                 activeColor: Colors.blue,
                 value: _checkedBreakfast,
@@ -100,11 +134,146 @@ class _DayBoxState extends State<DayBox> {
                   });
                 },
               ),
+              Checkbox(
+                activeColor: Colors.blue,
+                value: _checkedDinner,
+                onChanged: (bool? value) {
+                  setState(() {
+                    _checkedDinner = value!;
+                  });
+                },
+              ),
             ],
           ),
-          Column(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
-              const Text('よる', style: TextStyle(fontSize: 20.0),),
+              const Text(
+                'すいようび',
+                style: TextStyle(fontSize: 30.0),
+              ),
+              Checkbox(
+                activeColor: Colors.blue,
+                value: _checkedBreakfast,
+                onChanged: (bool? value) {
+                  setState(() {
+                    _checkedBreakfast = value!;
+                  });
+                },
+              ),
+              Checkbox(
+                activeColor: Colors.blue,
+                value: _checkedDinner,
+                onChanged: (bool? value) {
+                  setState(() {
+                    _checkedDinner = value!;
+                  });
+                },
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: <Widget>[
+              const Text(
+                'もくようび',
+                style: TextStyle(fontSize: 30.0),
+              ),
+              Checkbox(
+                activeColor: Colors.blue,
+                value: _checkedBreakfast,
+                onChanged: (bool? value) {
+                  setState(() {
+                    _checkedBreakfast = value!;
+                  });
+                },
+              ),
+              Checkbox(
+                activeColor: Colors.blue,
+                value: _checkedDinner,
+                onChanged: (bool? value) {
+                  setState(() {
+                    _checkedDinner = value!;
+                  });
+                },
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: <Widget>[
+              const Text(
+                'きんようび',
+                style: TextStyle(fontSize: 30.0),
+              ),
+              Checkbox(
+                activeColor: Colors.blue,
+                value: _checkedBreakfast,
+                onChanged: (bool? value) {
+                  setState(() {
+                    _checkedBreakfast = value!;
+                  });
+                },
+              ),
+              Checkbox(
+                activeColor: Colors.blue,
+                value: _checkedDinner,
+                onChanged: (bool? value) {
+                  setState(() {
+                    _checkedDinner = value!;
+                  });
+                },
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: <Widget>[
+              const Text(
+                '　どようび',
+                style: TextStyle(fontSize: 30.0),
+              ),
+              Checkbox(
+                activeColor: Colors.blue,
+                value: _checkedBreakfast,
+                onChanged: (bool? value) {
+                  setState(() {
+                    _checkedBreakfast = value!;
+                  });
+                },
+              ),
+              Checkbox(
+                activeColor: Colors.blue,
+                value: _checkedDinner,
+                onChanged: (bool? value) {
+                  setState(() {
+                    _checkedDinner = value!;
+                  });
+                },
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: <Widget>[
+              const Text(
+                'にちようび',
+                style: TextStyle(fontSize: 30.0),
+              ),
+              Checkbox(
+                activeColor: Colors.blue,
+                value: _checkedBreakfast,
+                onChanged: (bool? value) {
+                  setState(() {
+                    _checkedBreakfast = value!;
+                  });
+                },
+              ),
               Checkbox(
                 activeColor: Colors.blue,
                 value: _checkedDinner,
