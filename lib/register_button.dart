@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './register_page.dart';
 
 class RegisterButton extends StatefulWidget {
   const RegisterButton({Key? key}) : super(key: key);
@@ -12,16 +13,15 @@ class RegisterButtonState extends State<RegisterButton> {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-          // （1） 背景色を指定
           primary: Colors.redAccent,
-          // （2） 影のサイズ
           elevation: 5,
-          // （3） 角を丸くする
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),
           )),
-      onPressed: () {
-        print('tapped!!');
+      onPressed: ()  {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+          return const RegisterPage();
+        }));
       },
       child: const Text('登録する'),
     );
